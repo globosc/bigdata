@@ -1,7 +1,7 @@
 # Trabajo realizado sobre nube Microsoft Azure en un cluster hdInsight
 
 ## Introducción
-En ese repositorio se utilizan herramientas basadas en el framework spark a través de un cluster hdInsight de la nube de microsoft en donde se analizan los archivos generados por la iniciativa GDELT. En primera instancia consistió en todo un desafío ya que primero el investigador tuvo que entender que era GDELT, como funcionaba, y como integrarlo a la nube azure. 
+En este repositorio se utilizan herramientas basadas en el framework spark a través de un cluster hdInsight de la nube de microsoft en donde se analizan los archivos generados por la iniciativa GDELT. En primera instancia consistió en todo un desafío ya que primero el investigador tuvo que entender que era GDELT, como funcionaba, y como integrarlo a la nube azure. 
 Para lo cual y haciendo gala de su pasado como ingeniero en sistemas, el investigador optó por realizar un script en bash para descargar las direcciones web de los arhivos publicados en GDELT, para posteriormente descargarlos, descomprimirlos y subirlos al sistema de almacenamiento distribuido de microsoft para ser analizados. Es por esto que se incluyen el script.
 Posterior a esto, se responden todas las consultas del desafío utilizando:
 1. PIG
