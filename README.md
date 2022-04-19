@@ -8,6 +8,8 @@ Posterior a esto, se responden todas las consultas del desafío utilizando:
 2. HIVE
 3. PySpark
 4. Spark SQL
+5. Python
+6. Bash
 
 
 
