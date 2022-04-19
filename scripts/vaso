@@ -1,0 +1,28 @@
+/usr/hdp/current/spark3-client/python/lib/pyspark.zip/pyspark/context.py:223: DeprecationWarning: Support for Python 2 and Python 3 prior to version 3.6 is deprecated as of Spark 3.0. See also the plan for dropping Python 2 support at https://spark.apache.org/news/plan-for-dropping-python-2-support.html.
+  DeprecationWarning)
++---------------------+-----+
+|Actor2Geo_CountryCode|count|
++---------------------+-----+
+|                   LT|  906|
+|                   CI| 2595|
+|                   PC|    2|
+|                   IC| 1026|
+|                   FI| 1948|
+|                   PM|  938|
+|                   SC|  183|
+|                   PU|   90|
+|                   NS|  248|
+|                   RO| 3423|
+|                   SL|  687|
+|                   NL| 8256|
+|                   LA| 1087|
+|                   SB|   18|
+|                   MN|  400|
+|                   AM|10230|
+|                   PL| 5393|
+|                   RE|   77|
+|                   UV|  571|
+|                   PS|  179|
++---------------------+-----+
+only showing top 20 rows
+

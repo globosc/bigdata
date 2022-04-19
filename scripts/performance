@@ -1,0 +1,13 @@
+/usr/hdp/current/spark3-client/python/lib/pyspark.zip/pyspark/context.py:223: DeprecationWarning: Support for Python 2 and Python 3 prior to version 3.6 is deprecated as of Spark 3.0. See also the plan for dropping Python 2 support at https://spark.apache.org/news/plan-for-dropping-python-2-support.html.
+  DeprecationWarning)
+Traceback (most recent call last):
+  File "/home/sshuser/spark5.py", line 17, in <module>
+    columnas3.show()
+  File "/usr/hdp/current/spark3-client/python/lib/pyspark.zip/pyspark/sql/dataframe.py", line 440, in show
+  File "/usr/hdp/current/spark3-client/python/lib/py4j-0.10.9-src.zip/py4j/java_gateway.py", line 1303, in __call__
+  File "/usr/hdp/current/spark3-client/python/lib/py4j-0.10.9-src.zip/py4j/java_gateway.py", line 1033, in send_command
+  File "/usr/hdp/current/spark3-client/python/lib/py4j-0.10.9-src.zip/py4j/java_gateway.py", line 1200, in send_command
+  File "/usr/bin/anaconda/lib/python2.7/socket.py", line 451, in readline
+    data = self._sock.recv(self._rbufsize)
+  File "/usr/hdp/current/spark3-client/python/lib/pyspark.zip/pyspark/context.py", line 277, in signal_handler
+KeyboardInterrupt

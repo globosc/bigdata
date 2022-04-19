@@ -1,0 +1,28 @@
+/usr/hdp/current/spark3-client/python/lib/pyspark.zip/pyspark/context.py:223: DeprecationWarning: Support for Python 2 and Python 3 prior to version 3.6 is deprecated as of Spark 3.0. See also the plan for dropping Python 2 support at https://spark.apache.org/news/plan-for-dropping-python-2-support.html.
+  DeprecationWarning)
++--------------------+------------------+
+|   mentionsourcename|   avg(confidence)|
++--------------------+------------------+
+|            wdiy.org| 39.12932138284251|
+|          frieze.com| 37.56578947368421|
+|             cmu.edu|34.411764705882355|
+|              bt.com|34.074074074074076|
+|         evtoday.com|26.666666666666668|
+|      anothermag.com| 31.11111111111111|
+|     1077thebone.com|              39.0|
+|     cityviewmag.com|35.714285714285715|
+|investigativeproj...|29.782608695652176|
+|       wiznation.com|38.288288288288285|
+|floridastateparks...|              32.5|
+|        torquemag.io|              32.5|
+|      bayoubrief.com|              22.5|
+|            elle.com| 39.21708185053381|
+|  smithsonianmag.com| 35.68141592920354|
+|    praytellblog.com|16.666666666666668|
+|  alaskalandmine.com|              25.0|
+|              kas.de|              37.0|
+|  nationalreview.com|38.827838827838825|
+|      opencanada.org| 37.51322751322751|
++--------------------+------------------+
+only showing top 20 rows
+

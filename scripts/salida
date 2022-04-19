@@ -1,0 +1,28 @@
+/usr/hdp/current/spark3-client/python/lib/pyspark.zip/pyspark/context.py:223: DeprecationWarning: Support for Python 2 and Python 3 prior to version 3.6 is deprecated as of Spark 3.0. See also the plan for dropping Python 2 support at https://spark.apache.org/news/plan-for-dropping-python-2-support.html.
+  DeprecationWarning)
++--------------------+------------------+--------------------+-----+
+|   mentionsourcename|   avg(confidence)|   mentionsourcename|count|
++--------------------+------------------+--------------------+-----+
+|   timesofisrael.com| 35.97463199423069|   timesofisrael.com|23573|
+|     sputniknews.com|39.150696864111495|     sputniknews.com|11480|
+|       breitbart.com|  39.7635850388144|       breitbart.com|11336|
+|palestinemonitor.org|30.845235765994914|palestinemonitor.org|10222|
+|         nbcnews.com|38.502661147250144|         nbcnews.com| 8455|
+|         voanews.com| 39.76715228489603|         voanews.com| 8031|
+|         haaretz.com|38.383356949632876|         haaretz.com| 7763|
+|        usatoday.com| 38.72883964296707|        usatoday.com| 6498|
+|        politico.com| 38.10108864696734|        politico.com| 6430|
+|northwestgeorgian...| 39.09743262637538|northwestgeorgian...| 6271|
+|middleeastmonitor...|39.817358978503314|middleeastmonitor...| 6187|
+|         madison.com| 39.76015663240333|         madison.com| 6129|
+|        albawaba.com|39.629564913506904|        albawaba.com| 5723|
+|   middleeasteye.net|35.367729831144466|   middleeasteye.net| 5330|
+|         cnsnews.com|  38.8968315301391|         cnsnews.com| 5176|
+|      al-monitor.com|38.562538892345984|      al-monitor.com| 4821|
+|         qctimes.com| 39.77743835915339|         qctimes.com| 4583|
+|      algemeiner.com|  36.3888169816205|      algemeiner.com| 3863|
+|    eagletribune.com| 39.96756756756757|    eagletribune.com| 3700|
+|           rferl.org|  39.1976911976912|           rferl.org| 3465|
++--------------------+------------------+--------------------+-----+
+only showing top 20 rows
+

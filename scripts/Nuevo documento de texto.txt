@@ -1,0 +1,191 @@
+from pyspark import SparkConf, SparkContext
+from pyspark.sql import HiveContext
+
+conf = SparkConf().setAppName("test-magister")
+sc = SparkContext(conf=conf)
+hiveCtx = HiveContext(sc)
+
+query = hiveCtx.sql("SELECT * FROM sep_mentions_table")
+
+for x in query.collect():
+    print(x)
+
+1.¿Cuál fue el sitio web con mayor cantidad de eventos registrados el 6 de Octubre del 2020?
+#######################################################################################################
+
+
+
+from pyspark import SparkConf, SparkContext
+from pyspark.sql import HiveContext
+from pyspark.sql.functions import col,desc
+conf = SparkConf().setAppName("test-magister")
+sc = SparkContext(conf=conf)
+hiveCtx = HiveContext(sc)
+df = hiveCtx.sql("select * from oct_mentions_table")
+
+query= df.filter(df.mentiontimedate.like("%20201006%")).groupBy('mentionsourcename').count().select('mentionsourcename',col('count').alias('cnt')).sort(desc('cnt')).limit(2)
+for x in query.collect():
+    print(x)
+
+
+2.¿Cuál es la ciudad con mayor número de apariciones en los eventos registrados el 6 de Octubredel 2020?
+#######################################################################################################
+
+
+from pyspark import SparkConf, SparkContext
+from pyspark.sql import HiveContext
+from pyspark.sql.functions import col,desc
+conf = SparkConf().setAppName("test-magister")
+sc = SparkContext(conf=conf)
+hiveCtx = HiveContext(sc)
+df = hiveCtx.sql("select * from oct_export_table")
+query= df.filter(df.sqldate.like("20201006")).groupBy('actor1geo_fullname').count().select('actor1geo_fullname',col('count').alias('cnt')).sort(desc('cnt')).limit(2)
+for x in query.collect():
+    print(x)
+
+3.¿Cuál fue el evento generado durante Noviembre del 2020 con mayor cantidad de menciones en los medios?
+#######################################################################################################
+
+
+
+from pyspark import SparkConf, SparkContext
+from pyspark.sql import HiveContext
+from pyspark.sql.functions import col,desc
+conf = SparkConf().setAppName("test-magister")
+sc = SparkContext(conf=conf)
+hiveCtx = HiveContext(sc)
+df = hiveCtx.sql("select * from nov_mentions_table")
+
+query= df.filter(df.mentiontimedate.like("%202011%")).groupBy('globaleventid').count().select('globaleventid',col('count').alias('cnt')).sort(desc('cnt')).limit(1)
+for x in query.collect():
+    print(x)
+
+GlobalEventID
+globaleventid
+
+
+
+4.¿Cuáles son los 10 sitios web que generaron en promedio la mayor cantidad de menciones poco 
+confiables (<40% de confianza) durante Noviembredel 2020?
+#######################################################################################################
+import pyspark.sql.functions as F
+from pyspark.sql.functions import when, sum, avg, col
+from pyspark import SparkConf, SparkContext
+from pyspark.sql import HiveContext
+from pyspark.sql.functions import col,desc
+from pyspark.sql.types import IntegerType
+from pyspark.sql.window import Window
+conf = SparkConf().setAppName("test-magister")
+sc = SparkContext(conf=conf)
+hiveCtx = HiveContext(sc)
+df = hiveCtx.sql("select * from nov_mentions_table")
+cnt_cond = lambda cond: F.sum(F.when(cond, 1).otherwise(0))
+query = df.withColumn("confidence", df["confidence"].cast(IntegerType())).groupBy("mentionsourcename").agg(cnt_cond(F.col('confidence') <40).alias('count_condition'),cnt_cond(F.col('confidence') > 0).alias('count')).withColumn('final_ratio', F.co
+l('count_condition')/F.sum('count').over(Window.partitionBy())).sort(desc('final_ratio')).limit(10)
+for x in query.collect():
+    print(x)
+
+
+
+
+5.¿Cuáles son los 10 sitios web que generaron en promedio la mayor cantidad de menciones 
+muy confiables (>80% de confianza) durante Septiembre, Octubre, Noviembre y 
+Diciembre del 2020?(promedio de todas las apariciones durante los 4 meses)
+#######################################################################################################
+
+import pyspark.sql.functions as F
+from pyspark.sql.functions import when, sum, avg, col
+from pyspark import SparkConf, SparkContext
+from pyspark.sql import HiveContext
+from pyspark.sql.functions import col,desc
+from pyspark.sql.types import IntegerType
+from pyspark.sql.window import Window
+from functools import reduce
+from pyspark.sql import DataFrame
+
+
+
+
+
+conf = SparkConf().setAppName("test-magister")
+sc = SparkContext(conf=conf)
+hiveCtx = HiveContext(sc)
+
+
+
+
+
+df1 = hiveCtx.sql("select * from dic_mentions_table")
+df2 = hiveCtx.sql("select * from nov_mentions_table")
+df3 = hiveCtx.sql("select * from oct_mentions_table")
+df4 = hiveCtx.sql("select * from sep_mentions_table")
+
+dfs = [df1,df2,df3,df4]
+df = reduce(DataFrame.union, dfs)
+
+
+cnt_cond = lambda cond: F.sum(F.when(cond, 1).otherwise(0))
+
+query = df.withColumn("confidence", df["confidence"].cast(IntegerType())).groupBy("mentionsourcename").agg(cnt_cond(F.col('confidence') > 80).alias('count_condition'),cnt_cond(F.col('confidence') > 0).alias('count')).withColumn('final_ratio', F.col('count_condition')/F.sum('count').over(Window.partitionBy())).sort(desc('final_ratio')).limit(10)
+
+for x in query.collect():
+    print(x)
+
+
+
+
+
+
+
+6.Diseñe una consulta que le parezca relevante y que involucre cruzar los 
+datasets export y mentions usando la llave GlobalEventID (primeroscampos en ambos).
+
+
+¿En orden descendiente, cuales son las webs que tienen al menos 50 menciones que cubren los eventos con GoldsteinScale más radicales durante los 4 meses(Que en promedio
+tengan valores de GoldeinScale cercanos a +10 y -10)?
+
+
+
+
+import pyspark.sql.functions as F
+from pyspark.sql.functions import when, sum, avg, col
+from pyspark import SparkConf, SparkContext
+from pyspark.sql import HiveContext
+from pyspark.sql.functions import col,desc
+from pyspark.sql.types import IntegerType
+from pyspark.sql.window import Window
+from functools import reduce
+from pyspark.sql import DataFrame
+conf = SparkConf().setAppName("test-magister")
+sc = SparkContext(conf=conf)
+hiveCtx = HiveContext(sc)
+df1 = hiveCtx.sql("select * from dic_mentions_table")
+df2 = hiveCtx.sql("select * from nov_mentions_table")
+df3 = hiveCtx.sql("select * from oct_mentions_table")
+df4 = hiveCtx.sql("select * from sep_mentions_table")
+df5 = hiveCtx.sql("select * from dic_export_table")
+df6 = hiveCtx.sql("select * from nov_export_table")
+df7 = hiveCtx.sql("select * from oct_export_table")
+df8 = hiveCtx.sql("select * from sep_export_table")
+dfs1 = [df1,df2,df3,df4]
+dfs2 = [df5,df6,df7,df8]
+
+
+df_mentions = reduce(DataFrame.union, dfs1)
+df_export = reduce(DataFrame.union, dfs2)
+df = df_mentions.join(df_export, df_mentions.globaleventid == df_export.globaleventid , "left_outer")
+query = df.withColumn("goldsteinscale", df["goldsteinscale"].cast(DoubleType())).groupBy("mentionsourcename").agg(F.mean("goldsteinscale").alias("Avg"), F.sum("goldsteinscale").alias("Sum")).count().select('mentionsourcename',col('count').alias('cnt'), "Avg", "Sum").filter("cnt" > 50").sort(desc('Avg')).limit(10)
+for x in query.collect():
+    print(x)
+
+
+
+
+
+
+
+
+
+
+
+\Google\Chrome\Application\chrome.exe --proxy-server="socks5://localhost:1080" --user-data-dir="%Temp%\clustertarea-m" http://clustertarea-m:8088

@@ -1,0 +1,28 @@
+/usr/hdp/current/spark3-client/python/lib/pyspark.zip/pyspark/context.py:223: DeprecationWarning: Support for Python 2 and Python 3 prior to version 3.6 is deprecated as of Spark 3.0. See also the plan for dropping Python 2 support at https://spark.apache.org/news/plan-for-dropping-python-2-support.html.
+  DeprecationWarning)
++--------------------+-----------------+--------------------+-----+
+|   mentionsourcename|  avg(confidence)|   mentionsourcename|count|
++--------------------+-----------------+--------------------+-----+
+|            meed.com|88.49744245524296|            meed.com| 3128|
+|            live.com|99.97919916796671|            live.com| 1923|
+|business2communit...|84.02045633359559|business2communit...| 1271|
+|   lewistownnews.com|89.87676056338029|   lewistownnews.com| 1136|
+|      coolsocial.net|97.59024390243903|      coolsocial.net| 1025|
+|      alleywatch.com|92.25581395348837|      alleywatch.com|  860|
+|androidheadlines.com|80.08578431372548|androidheadlines.com|  816|
+|     justjaredjr.com|80.14492753623189|     justjaredjr.com|  759|
+|        energyfm.net|96.93989071038251|        energyfm.net|  732|
+|   androidpolice.com| 82.3013698630137|   androidpolice.com|  730|
+|marketbusinessnew...|85.76223776223776|marketbusinessnew...|  715|
+|              bgr.in| 80.1015228426396|              bgr.in|  591|
+|           rexmd.com|            100.0|           rexmd.com|  518|
+|seminolesentinel.com|99.43775100401606|seminolesentinel.com|  498|
+|    rustonleader.com| 93.9323467230444|    rustonleader.com|  473|
+|      chinavitae.com|            100.0|      chinavitae.com|  470|
+|          heartfm.ca|82.11267605633803|          heartfm.ca|  426|
+| themobileindian.com|80.43147208121827| themobileindian.com|  394|
+|androidcommunity.com|80.77127659574468|androidcommunity.com|  376|
+|stamfordmercury.c...|89.73190348525469|stamfordmercury.c...|  373|
++--------------------+-----------------+--------------------+-----+
+only showing top 20 rows
+

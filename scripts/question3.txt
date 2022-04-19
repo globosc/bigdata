@@ -1,0 +1,12 @@
+/usr/hdp/current/spark3-client/python/lib/pyspark.zip/pyspark/context.py:223: DeprecationWarning: Support for Python 2 and Python 3 prior to version 3.6 is deprecated as of Spark 3.0. See also the plan for dropping Python 2 support at https://spark.apache.org/news/plan-for-dropping-python-2-support.html.
+  DeprecationWarning)
+Row(globaleventid=957018602, cnt=1079)
+Row(globaleventid=953950018, cnt=894)
+Row(globaleventid=957018542, cnt=834)
+Row(globaleventid=956034393, cnt=727)
+Row(globaleventid=955735471, cnt=719)
+Row(globaleventid=953924747, cnt=680)
+Row(globaleventid=953924802, cnt=660)
+Row(globaleventid=955732092, cnt=632)
+Row(globaleventid=956614494, cnt=627)
+Row(globaleventid=953830927, cnt=620)
